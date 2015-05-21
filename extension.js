@@ -6,7 +6,7 @@
 
     // WebSocket Test
 
-    /*var wsUri = "ws://127.0.0.1:1122/"; 
+    var wsUri = "ws://127.0.0.1:1122/"; 
     websocket = new WebSocket(wsUri); 
 
     websocket.onopen = function(evt) { 
@@ -20,7 +20,7 @@
     }; 
     websocket.onerror = function(evt) { 
         
-    }; */
+    };
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
