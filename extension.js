@@ -16,7 +16,7 @@
         
     }; 
     websocket.onmessage = function(evt) { 
-        attention = evt.data; // test
+        attention = evt.data.eSense.attention; // test
     }; 
     websocket.onerror = function(evt) { 
         
