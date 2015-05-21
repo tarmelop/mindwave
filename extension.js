@@ -1,4 +1,27 @@
 (function(ext) {
+
+    var attention = -1;
+    var meditation;
+    var blink;
+
+    // WebSocket Test
+
+    var wsUri = "ws://127.0.0.1:1122/"; 
+    websocket = new WebSocket(wsUri); 
+
+    websocket.onopen = function(evt) { 
+        
+    }; 
+    websocket.onclose = function(evt) { 
+        
+    }; 
+    websocket.onmessage = function(evt) { 
+        attention = evt.data; // test
+    }; 
+    websocket.onerror = function(evt) { 
+        
+    }; 
+
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -9,7 +32,7 @@
     };
 
     ext.get_attention = function() {
-        return 1; 
+        attention;
     };
 
     ext.get_meditation = function() {
@@ -31,4 +54,10 @@
 
     // Register the extension
     ScratchExtensions.register('Mindwave extension', descriptor, ext);
+
+
+
+
+
+
 })({});
