@@ -32,7 +32,7 @@
     };
 
     ext.get_attention = function() {
-        attention;
+        return attention;
     };
 
     ext.get_meditation = function() {
