@@ -1,6 +1,6 @@
 (function(ext) {
 
-    var attention = -1;
+    var attention;
     var meditation;
     var blink;
 
@@ -16,7 +16,9 @@
         
     }; 
     websocket.onmessage = function(evt) { 
-        attention = evt.data.eSense.attention; // test
+        attention = JSON.parse(evt.data).eSense.attention || 0 ;
+        meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
+        blink = JSON.parse(evt.data).blinkStrenght || 0;
     }; 
     websocket.onerror = function(evt) { 
         
