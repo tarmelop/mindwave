@@ -2,7 +2,7 @@
 
     var attention;
     var meditation;
-    var blink;
+    var blinkStrenght;
 
     // WebSocket Test
 
@@ -18,7 +18,7 @@
     websocket.onmessage = function(evt) { 
         attention = JSON.parse(evt.data).eSense.attention || 0 ;
         meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
-        blink = JSON.parse(evt.data).blinkStrenght || 0;
+        blinkStrenght = JSON.parse(evt.data).blinkStrenght || 0;
     }; 
     websocket.onerror = function(evt) { 
         
@@ -38,11 +38,11 @@
     };
 
     ext.get_meditation = function() {
-        return 1; 
+        return meditation; 
     };
 
-    ext.get_blink = function() {
-        return 1; 
+    ext.get_blinkStrenght = function() {
+        return blinkStrenght;
     };
 
     // Block and block menu descriptions
@@ -50,7 +50,7 @@
         blocks: [
             ['r', 'attention', 'get_attention'],
             ['r', 'meditation', 'get_meditation'],
-            ['r', 'blink', 'get_blink'],
+            ['r', 'blinkStrenght', 'get_blinkStrenght'],
         ]
     };
 
