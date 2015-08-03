@@ -15,11 +15,10 @@
     websocket.onclose = function(evt) { 
         
     }; 
-
     websocket.onmessage = function(evt) { 
-		attention = JSON.parse(evt.data).eSense.attention;
-        meditation = JSON.parse(evt.data).eSense.meditation;
-        blink = JSON.parse(evt.data).blinkStrength;
+        attention = JSON.parse(evt.data).eSense.attention || 0 ;
+        meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
+        blink = JSON.parse(evt.data).blinkStrength || 0;
     }; 
     websocket.onerror = function(evt) { 
         
@@ -34,24 +33,16 @@
         return {status: 2, msg: 'Ready'};
     };
 
-	// Reset value when is read
-
     ext.get_attention = function() {
-		var _attention = attention;
-		attention = 0;
-        return _attention;
+        return attention;
     };
 
     ext.get_meditation = function() {
-		var _meditation = meditation;
-		meditation = 0;
-        return _meditation; 
+        return meditation; 
     };
 
     ext.get_blink = function() {
-		var _blink = blink;
-		blink = 0;
-        return _blink;
+        return blink;
     };
 
     // Block and block menu descriptions
