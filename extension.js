@@ -50,7 +50,7 @@
         blocks: [
             ['r', 'attention', 'get_attention'],
             ['r', 'meditation', 'get_meditation'],
-            ['r', 'blink', 'get_blinkS'],
+            ['r', 'blink', 'get_blink'],
         ]
     };
 
