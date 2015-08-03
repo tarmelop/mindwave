@@ -16,9 +16,11 @@
         
     }; 
     websocket.onmessage = function(evt) { 
-        
-		attention = JSON.parse(evt.data).eSense.attention || 0 ;
-        meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
+	
+		if (JSON.parse(evt.data).eSense.attention){
+			attention = JSON.parse(evt.data).eSense.attention || 0 ;
+	        meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
+		}
 		
 		if (JSON.parse(evt.data).blinkStrength){
 			blink = JSON.parse(evt.data).blinkStrength;
