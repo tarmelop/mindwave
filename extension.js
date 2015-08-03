@@ -18,7 +18,7 @@
     websocket.onmessage = function(evt) { 
         attention = JSON.parse(evt.data).eSense.attention || 0 ;
         meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
-        blink = JSON.parse(evt.data).blinkStrength || 0;
+        blink = JSON.parse(evt.data).blinkStrength;
     }; 
     websocket.onerror = function(evt) { 
         
