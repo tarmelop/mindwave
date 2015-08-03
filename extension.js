@@ -4,10 +4,10 @@
     var meditation;
     var blink;
 
-    // WebSocket Test
+    // WebSocket setup
 
     var wsUri = "ws://127.0.0.1:1122/"; 
-    websocket = new WebSocket(wsUri); 
+    websocket = new WebSocket(wsUri);
 
     websocket.onopen = function(evt) { 
         
@@ -25,7 +25,7 @@
 			attention = jsonData.eSense.attention || 0 ;
 	        meditation = jsonData.eSense.meditation || 0 ;
 		} else if (jsonData.blinkStrength){
-			blink = jsonData.blinkStrength;
+			blink = jsonData.blinkStrength || 0;
 		}    
     }; 
 
