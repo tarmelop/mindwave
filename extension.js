@@ -12,23 +12,25 @@
     websocket.onopen = function(evt) { 
         
     }; 
+
     websocket.onclose = function(evt) { 
         
     }; 
-    websocket.onmessage = function(evt) { 
+    
+	websocket.onmessage = function(evt) {
 	
-		if (JSON.parse(evt.data).eSense.attention){
-			attention = JSON.parse(evt.data).eSense.attention || 0 ;
-	        meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
-		}
-		
-		if (JSON.parse(evt.data).blinkStrength){
-			blink = JSON.parse(evt.data).blinkStrength;
-		}
-        
+	 	var jsonData = JSON.parse(evt.data);
+	
+		if (jsonData.eSense){
+			attention = jsonData.eSense.attention || 0 ;
+	        meditation = jsonData.eSense.meditation || 0 ;
+		} else if (jsonData.blinkStrength){
+			blink = jsonData.blinkStrength;
+		}    
     }; 
+
     websocket.onerror = function(evt) { 
-        
+        console.log('error: '+evt);
     };
 
     // Cleanup function when the extension is unloaded
@@ -63,6 +65,5 @@
 
     // Register the extension
     ScratchExtensions.register('Mindwave extension', descriptor, ext);
-
 
 })({});
