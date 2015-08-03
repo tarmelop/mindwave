@@ -2,7 +2,7 @@
 
     var attention;
     var meditation;
-    var blink = 42;
+    var blink;
 
     // WebSocket Test
 
@@ -16,9 +16,14 @@
         
     }; 
     websocket.onmessage = function(evt) { 
-        attention = JSON.parse(evt.data).eSense.attention || 0 ;
+        
+		attention = JSON.parse(evt.data).eSense.attention || 0 ;
         meditation = JSON.parse(evt.data).eSense.meditation || 0 ;
-        blink = JSON.parse(evt.data).blinkStrength;
+		
+		if (JSON.parse(evt.data).blinkStrength){
+			blink = JSON.parse(evt.data).blinkStrength;
+		}
+        
     }; 
     websocket.onerror = function(evt) { 
         
