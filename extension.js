@@ -2,7 +2,7 @@
 
     var attention;
     var meditation;
-    var blink;
+    var blink = 42;
 
     // WebSocket Test
 
